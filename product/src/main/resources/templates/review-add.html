@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>JIDMUM Product Website</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div th:insert="fragments/header :: header"></div>
+
+<div class="container">
+    <h1 class="display-6">Add Review</h1>
+
+    <form th:action="@{/review/add}"  th:object="${reviewRequest}" method="POST">
+
+        <input type="hidden" name="productId" th:value="${productId}" id="product   Id">
+
+            <label for="reviewTextInput" class="form-label">Review</label>
+            <input id="reviewTextInput" type="text" class="form-control" th:field="*{reviewText}" name="reviewText">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('reviewText')}" th:errors="*{reviewText}"></div>
+        <button type="submit" class="btn btn-primary">Add Review</button>
+    </form>
+</div>
+</body>
+</html>

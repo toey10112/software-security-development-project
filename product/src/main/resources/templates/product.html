@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:insert="fragments/header :: header"></div>
+<div class="container">
+    <h1 class="display-6">Availaible Products</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Product Img Link</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.productName}"></td>
+            <td><img th:src="${product.imgLink}" style="width:100px;"/></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.category}"></td>
+            <td th:text="${product.stock}"></td>
+            <td style="text-align: center">
+                <a class="btn btn-primary"
+                   th:href="@{/review/{id}(id=${product.id})}">Review</a>
+            </td>
+            <td style="text-align: center">
+                <form action="#" th:action="@{'/product/delete/{productId}'(productId=${product.id})}" th:method="delete" >
+                    <button type="submit" class="btn btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
