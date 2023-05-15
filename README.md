@@ -20,13 +20,13 @@ There are 2 ways to run this project on your local machine.
 #### 1. Clone product-service repository to your local machine  
 
 ```
-git clone https://github.com/JIDMUM-application/product-service.git
+git clone https://github.com/toey10112/software-security-development-project.git
 ```
 
 #### 2. Navigate to the project directory
 
 ```
-cd product-service
+cd product and review
 ```
 
 #### 3. Run the program
